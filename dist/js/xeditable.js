@@ -634,11 +634,12 @@ angular.module('xeditable').directive('editableSelect', ['editableDirectiveFacto
     });
 }]);
 //textarea
-angular.module('xeditable').directive('editableTextarea', ['editableDirectiveFactory',
-  function(editableDirectiveFactory) {
-    return editableDirectiveFactory({
-      directiveName: 'editableTextarea',
-      inputTpl: '<textarea></textarea>',
+angular.module('xeditable').directive('editableTextarea',
+['$rootScope', 'editableDirectiveFactory',
+function($rootScope, editableDirectiveFactory) {
+  return editableDirectiveFactory({
+    directiveName: 'editableTextarea',
+    inputTpl: $rootScope.isMobile ? '<textarea onclick="focus();"></textarea>' : '<textarea></textarea>',
       render: function() {
           this.parent.render.call(this);
 
