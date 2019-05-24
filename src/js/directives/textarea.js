@@ -1,10 +1,10 @@
 //textarea
 angular.module('xeditable').directive('editableTextarea',
-  ['$rootScope', 'editableDirectiveFactory',
-  function($rootScope, editableDirectiveFactory) {
+  ['editableDirectiveFactory',
+  function( editableDirectiveFactory) {
     return editableDirectiveFactory({
       directiveName: 'editableTextarea',
-      inputTpl: $rootScope.isMobile ? '<textarea onclick="focus();"></textarea>' : '<textarea></textarea>',
+      inputTpl: '<textarea onclick="focus();"></textarea>',
       render: function() {
           this.parent.render.call(this);
 
